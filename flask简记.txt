@@ -1,0 +1,56 @@
+from flask import Flask, render_template, request, make_response, jsonify
+
+app = Flask(__name__)
+
+@app.route('/index/', methods=['GET', 'POST'])
+def index():
+	return 'hello'
+
+
+@app.route('/hello/<int:id>')    # <string:name> | <uuid:uid> | <float:num> | <path:path>
+def hello():
+	request.args.get('name') | request.args.getlist()	# GET方式请求获取参数
+	request.form.get('name') | request.form.getlist()	# form表单提交获取参数
+	request.files	# 上传文件
+	request.cookies	   # 获取cookies值
+	request.method    # 获取请求的方法
+	request.path	# 获取请求的路由
+	render_template('index.html')	# 返回指定的模板页面，相当于django的render函数
+
+	django中返回响应: HttpResponse | redirect == HttpResponseRedirect
+	Flask中返回响应： 通过make_response()构建
+	response = make_response(render_template('index.html'))
+	response.set_cookie('token', '1234567890', max_age=3000)
+	response.delete_cookie('token')
+
+	flask重定向（页面跳转）
+	redirect('/hello/')
+
+	# 返回json数据
+	return jsonify({'code': 200})
+
+	# redirect和render_template的区别
+	redirect回重新跳转到指定的路由；render_template是直接返回渲染的模板页面
+
+	# 重定向时设置cookie，进行身份验证
+	res = redirect('/index/')
+	res.set_cookie('token', '1234567890', max_age=3000)
+
+
+	# 简单的启动flask的web服务
+	app.run()
+	# 可传入指定参数，绑定端口，ip等
+	app.run(host='127.0.0.1' port=8000)
+
+	# 使用Manager来管理flask对象
+	manage = Manager(app)
+
+	# 此时可以像django一样通过命令行来灵活的启动flask服务
+	python hello.py runserver -h(host) -p(port) -d(debug)
+
+	# manage.run()
+
+
+	# 补充：通过sys模块来接收命令行参数
+	import sys
+	sys.args将返回一个列表，第一个元素是被运行文件的绝对路径， 往后的参数是命令行输入的以空格分隔的每一个参数
