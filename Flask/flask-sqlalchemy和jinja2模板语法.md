@@ -13,6 +13,7 @@ django中获取data中第二个元素:{{ data.1 }}
 
 
 使用封装的三方库flask-sqlalchemy来进行模型的建立和迁移
+```python
 # 生成对象
 db = SQLAlchemy()
 
@@ -35,7 +36,7 @@ db.create()
 
 # 删除所有模型对应的表
 db.drop_all()
-
+```
 
 ### 二. jinja2模板语法简记
 模板表达式是包含在分割符{{ }}内
