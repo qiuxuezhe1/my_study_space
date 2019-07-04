@@ -12,6 +12,31 @@ flask中获取data中第二个元素:{{ data[1] }}
 django中获取data中第二个元素:{{ data.1 }}
 
 
+使用封装的三方库flask-sqlalchemy来进行模型的建立和迁移
+# 生成对象
+db = SQLAlchemy()
+
+# 创建模型字段
+# 自增且int类型的主键, 长度11位
+id = db.Column(db.Integer, primary_key=True)
+# 长度50，且唯一， 不能为空的s_name字段
+s_name = db.Column(db.String(50), unique=True, nullable=False)  
+
+# 指定数据库名
+__tablename__ = 'stu'
+
+
+连接数据库：mysql+pymysql://数据库用户名:数据库密码@连接主机的ip
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@47.102.100.231:3306/flaskbase'
+
+# 以下连个方法时flask-sqlalchemy自带的迁移和删除数据库的方法，可以引入三方库flask-migrate来进行模型的管理
+# 创建所有模型对应的表，成功不能修改表属性
+db.create()
+
+# 删除所有模型对应的表
+db.drop_all()
+
+
 ### 二. jinja2模板语法简记
 模板表达式是包含在分割符{{ }}内
 
