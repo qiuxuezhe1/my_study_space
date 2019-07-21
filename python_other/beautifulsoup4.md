@@ -159,7 +159,7 @@ soup.('a')
 关于find('html')的简写(其实一直在用，只是不知道)
 
 ```python
-soup.html # 实质是在...
+soup.html # 实质是在下面形式的简写
 soup.find('html')
 ```
 
