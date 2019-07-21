@@ -37,7 +37,7 @@ brew cask search 关键字
 
 比如要确定是否支持应用 gooooooogle，可搜索关键字 goo，即可显示所有包含 goo 的应用。如果不加关键字，会显示出所有支持的应用名称。
 
-
+![图片](./images/1.jpg)
 
 由于 Homebrew Cask 还不支持更新应用，故建议使用应用自带的方式进行更新。欲要查看其他命令，可在终端执行 `brew cask help` 以显示所有 commands，比如发现查看应用 Cask 信息的命令是 `info`，则在终端执行 `brew cask info 应用名称` 即可显示该应用信息。
 
