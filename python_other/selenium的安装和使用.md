@@ -12,9 +12,9 @@ pip install selenium
 
 首先确认自己电脑的Chrome版本，打开chrome浏览器设置——关于chrome——查看版本号
 
-![image-20190720191140868](/Users/mac/Library/Application Support/typora-user-images/image-20190720191140868.png)
+![image-20190720191140868](./images/1.png)
 
-![image-20190720191230143](/Users/mac/Library/Application Support/typora-user-images/image-20190720191230143.png)
+![image-20190720191230143](./images/2.png)
 
 如上图，我的版本号是75.0.3770.142，然后到[官网](http://chromedriver.chromium.org/)(太慢)或[淘宝镜像](http://npm.taobao.org/mirrors/chromedriver/)(推荐)下载，选择对应的版本号，进去之后再选择对应点的操作系统。
 
@@ -22,7 +22,7 @@ pip install selenium
 
 接下来将压缩包解压，把chromedriver.exe文件拷贝到你对应的python环境变量文件夹下，方便管理。windows拷贝到python的scritp文件夹下。前提是需要配置python环境变量。然后mac打开terminal,windows打开cmd，输入chromedriver。若出现以下情况，则表明环境变量配置成功。
 
-![image-20190720192748118](/Users/mac/Library/Application Support/typora-user-images/image-20190720192748118.png)
+![image-20190720192748118](./images/3.png)
 
 原因说明：方便管理；当然可以拷贝到任何环境变的文件夹下，但在若干时间以后，估计你就会忘记你的Chromedriver放在哪里了，不方便以后的版本更新导致需要的旧版本删除。当然不介意内存泄漏的朋友随意。
 
