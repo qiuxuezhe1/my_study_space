@@ -163,3 +163,22 @@ content_type：生成的文档要使用的MIME类型(不了解MIME类型的，�
 status：响应的状态码。默认为200。
 
 render方法主要是将从服务器提取的数据，填充到模板中，然后将渲染后的html静态文件返回给浏览器。这里一定要注意：render渲染的是模板。
+
+### 2. redirect函数
+
+一个绝对的或相对的URL
+
+```python
+def test_view(request):
+    ...
+    return redirect('/index/')
+
+def test_view1(request):
+    ...
+    return redirect('http://www.ybhx.xyz/')
+```
+
+### 3. render和redirect区别
+
+1. 一个视图函数返回一个登陆成功后的页面，此时浏览器的url还是之前的登录url，所以刷新页面时，就等于刷新登录页面。而redirect是重定向到指定的url，此时浏览器中的url已经是非登录url的另外一个url。所以此时刷新的就是重定向之后的url。
+2. redirect的实质是通过传入的url经过路由系统的分配去执行url对应的视图函数。相当于在你登录成功后，redirect让django系统自动帮你访问对应的url，并给你返回相应的页面。
